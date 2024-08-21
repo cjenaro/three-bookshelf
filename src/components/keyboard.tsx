@@ -2,19 +2,19 @@
 import {
   Center,
   FontData,
-  PerspectiveCamera,
   Plane,
   PresentationControls,
   RoundedBox,
   Text3D,
 } from "@react-three/drei";
-import { Canvas, useThree, Vector3 } from "@react-three/fiber";
+import { Canvas, Vector3 } from "@react-three/fiber";
 import firaCode from "@/fonts/firacode.json";
 import * as THREE from "three";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useKeyListener } from "@/hooks/use-key-listener";
+import { MyCamera } from "./camera";
 
 gsap.registerPlugin(useGSAP);
 
@@ -31,22 +31,6 @@ const BORDERS: { position: Vector3; rotated: boolean }[] = [
   { position: [0, 0.19, -1.45], rotated: false },
   { position: [1.45, 0.19, 0], rotated: true },
 ];
-
-function useCameraUpdate() {
-  const camera = useThree((t) => t.camera);
-  useEffect(() => {
-    if (!camera) return;
-    camera.position.set(4, 4, 4);
-    camera.lookAt(-4, -4, -4);
-    camera.updateProjectionMatrix();
-  }, [camera]);
-}
-
-function MyCamera() {
-  useCameraUpdate();
-
-  return <PerspectiveCamera makeDefault />;
-}
 
 function Key({ letter, z, x }: { letter?: string; z: number; x: number }) {
   const [down, set] = useState(false);
