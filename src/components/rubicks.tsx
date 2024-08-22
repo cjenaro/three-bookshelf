@@ -1,4 +1,4 @@
-import { Box } from "@react-three/drei";
+import { Box, SpotLight } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -53,7 +53,7 @@ export default function Rubicks() {
       <group ref={gRef}>
         {POSITIONS.map((position, idx) => (
           <Box key={idx} args={[1, 1, 1]} position={addGap(position)}>
-            <meshStandardMaterial metalness={3} color="black" />
+            <meshStandardMaterial roughness={0.7} metalness={3} color="black" />
           </Box>
         ))}
       </group>
