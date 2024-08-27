@@ -1,14 +1,12 @@
 // https://dribbble.com/shots/22831775-Cute-Keyboard-3D-Illustration
 import {
   Center,
-  FontData,
   Plane,
   PresentationControls,
   RoundedBox,
   Text3D,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import firaCode from "../fonts/firacode.json";
 import * as THREE from "three";
 import { useRef, useState } from "react";
 import gsap from "gsap";
@@ -68,12 +66,7 @@ function Key({ letter, z, x }: { letter?: string; z: number; x: number }) {
         <meshStandardMaterial color="#ececec" />
       </RoundedBox>
       <Center position={[0, 0.25, 0]} rotation={[Math.PI / -2, 0, 0]}>
-        <Text3D
-          castShadow
-          receiveShadow
-          font={firaCode as FontData}
-          scale={0.25}
-        >
+        <Text3D castShadow receiveShadow font={"/firacode.json"} scale={0.25}>
           {letter}
           <meshNormalMaterial />
         </Text3D>
