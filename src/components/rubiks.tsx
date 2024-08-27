@@ -1,4 +1,4 @@
-import { Box, SpotLight } from "@react-three/drei";
+import { Box } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";

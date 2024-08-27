@@ -26,6 +26,6 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
-.grid > div {
+.grid > a {
     aspect-ratio: 1 / 1;
 }

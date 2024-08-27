@@ -15,6 +15,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useKeyListener } from "@/hooks/use-key-listener";
 import { MyCamera } from "./camera";
+import HollowBox from "./hollow-box";
 
 gsap.registerPlugin(useGSAP);
 
@@ -23,13 +24,6 @@ const KEYS: [number, number, string][] = [
   [0.7, -0.7, "x"],
   [0.7, 0.7, "z"],
   [-0.7, -0.7, "c"],
-];
-
-const BORDERS: { position: Vector3; rotated: boolean }[] = [
-  { position: [0, 0.19, 1.45], rotated: false },
-  { position: [-1.45, 0.19, 0], rotated: true },
-  { position: [0, 0.19, -1.45], rotated: false },
-  { position: [1.45, 0.19, 0], rotated: true },
 ];
 
 function Key({ letter, z, x }: { letter?: string; z: number; x: number }) {
@@ -115,19 +109,7 @@ export default function Keyboard() {
         >
           <meshStandardMaterial color="rebeccapurple" />
         </RoundedBox>
-        {BORDERS.map(({ position, rotated }) => (
-          <RoundedBox
-            key={position.toString()}
-            position={position}
-            radius={0.05}
-            args={[2.95, 0.5, 0.1]}
-            receiveShadow
-            castShadow
-            rotation={[0, rotated ? Math.PI / 2 : 0, 0]}
-          >
-            <meshStandardMaterial color="rebeccapurple" />
-          </RoundedBox>
-        ))}
+        <HollowBox />
         <group>
           {KEYS.map(([x, z, letter]) => (
             <Key
