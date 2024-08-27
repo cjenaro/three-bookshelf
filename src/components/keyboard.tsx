@@ -7,13 +7,13 @@ import {
   RoundedBox,
   Text3D,
 } from "@react-three/drei";
-import { Canvas, Vector3 } from "@react-three/fiber";
-import firaCode from "@/fonts/firacode.json";
+import { Canvas } from "@react-three/fiber";
+import firaCode from "../fonts/firacode.json";
 import * as THREE from "three";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useKeyListener } from "@/hooks/use-key-listener";
+import { useKeyListener } from "../hooks/use-key-listener";
 import { MyCamera } from "./camera";
 import HollowBox from "./hollow-box";
 

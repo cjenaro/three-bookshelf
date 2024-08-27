@@ -254,7 +254,7 @@ function SquaredTower({
   scale?: Vector3;
   rotation?: Euler;
 }) {
-  const [xScale, yScale] = scale;
+  const [xScale, yScale] = scale as number[];
   return (
     <group position={position} rotation={rotation}>
       <group scale={scale} position={[0, yScale * 0.12, 0]}>
